@@ -122,9 +122,9 @@ carOne.fill(4);
 
 
 
-function Baby(attributes) {
-Person.call(this, attributes);
-this.favoriteToy = attributes.favoriteToy;
+function Baby(name, age, favoriteToy) {
+Person.call(this, name, age);
+this.favoriteToy = favoriteToy;
 }
 
 Baby.prototype = Object.create(Person.prototype);
@@ -137,6 +137,8 @@ Baby.prototype.play = function() {
 }
 
 const babyOne = new Baby('Sophia', '1', 'Rattle')
+
+babyOne.play();
 
 /* 
   TASK 4
