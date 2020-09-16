@@ -94,19 +94,21 @@ console.log(personTwo.stomach);
 */
 
 function Car(model, milesPerGallon) {
-this.tank = tank;
-this.odometer = odometer;
+this.model = model;
+this.milesPerGallon = milesPerGallon;
+this.tank = 0;
+this.odometer = 0;
 }
 
 //Fill method
 
 Car.prototype.fill = function(gallons) {
- this.tank + gallons;
+ return this.tank = this.tank + gallons;
 }
 
 const carOne = new Car('Kia', 0);
 
-Car.fill(4);
+carOne.fill(4);
 
 /*
   TASK 3
@@ -123,10 +125,10 @@ function Baby() {
   TASK 4
 
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1.  Window Binding: What happens when 'this' is not given any context. The exception is when using 'strict mode', in which case you will get undefined rather than a window binding.
+  2.  Implicit Binding: Only applies to objects with methods. Look to the left of .this to find the binding.
+  3. Explicit Binding: You are telling JS what 'this' refers to by which binding you use. Call is in IIFE and passes arguments 1 at a time; Apply is an IIFE and will pass arguments as an arry, and Bind is NOT an IIFE and thus returns a new function that can later be invoked.
+  4. New Binding: 'this' points to the newly created object when using the new keyword.
 */
 
 
