@@ -39,9 +39,45 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-
+function Person(name, age) {
+  this.name = name;
+  this.age = age;
+  this.stomach = [];
 }
+
+Person.prototype.eat = function(edible){
+  if(this.stomach.length < 10) {
+    this.stomach.push(edible);
+  }
+}
+
+Person.prototype.poop = function() {
+  this.stomach = [];
+}
+
+
+Person.prototype.toString = function(){
+  return `${this.name}, ${this.age}`; 
+}
+
+const personOne = new Person('William', 21);
+const personTwo = new Person('Grady', 33);
+const personThree = new Person('Cheree', 41);
+
+console.log(personOne.toString());
+console.log(personTwo.toString());
+console.log(personThree.toString());
+
+personTwo.eat('🍍');
+personTwo.eat('🐌');
+personTwo.eat('🥪');
+
+console.log(personTwo.stomach);
+
+personTwo.poop();
+
+console.log(personTwo.stomach);
+
 
 /*
   TASK 2
@@ -57,9 +93,20 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-
+function Car(model, milesPerGallon) {
+this.tank = tank;
+this.odometer = odometer;
 }
+
+//Fill method
+
+Car.prototype.fill = function(gallons) {
+ this.tank + gallons;
+}
+
+const carOne = new Car('Kia', 0);
+
+Car.fill(4);
 
 /*
   TASK 3
@@ -93,3 +140,5 @@ if (typeof exports !== 'undefined') {
   if (Car) { module.exports.Car = Car }
   if (Baby) { module.exports.Baby = Baby }
 }
+
+
