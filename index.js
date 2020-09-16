@@ -47,16 +47,19 @@ function Person(name, age) {
   this.stomach = [];
 }
 
-Person.prototype.eat = function(edible){
+Person.prototype.eat = function(edible) {
   if(this.stomach.length < 10) {
     this.stomach.push(edible);
   }
-}
+};
+
+//poop method
 
 Person.prototype.poop = function() {
   this.stomach = [];
 }
 
+//toString method
 
 Person.prototype.toString = function(){
   return `${this.name}, ${this.age}`; 
@@ -65,21 +68,6 @@ Person.prototype.toString = function(){
 const personOne = new Person('William', 21);
 const personTwo = new Person('Grady', 33);
 const personThree = new Person('Cheree', 41);
-
-console.log(personOne.toString());
-console.log(personTwo.toString());
-console.log(personThree.toString());
-
-personTwo.eat('🍍');
-personTwo.eat('🐌');
-personTwo.eat('🥪');
-
-console.log(personTwo.stomach);
-
-personTwo.poop();
-
-console.log(personTwo.stomach);
-
 
 /*
   TASK 2
