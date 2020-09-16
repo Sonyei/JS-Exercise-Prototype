@@ -7,6 +7,8 @@
         + If a plane lands, its `isFlying` property is set to false.
 */
 
+const { prototype } = require("mocha");
+
 // EXAMPLE SOLUTION CODE:
 function Airplane(name) {
   this.name = name;
@@ -117,9 +119,24 @@ carOne.fill(4);
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
 
+
+
+function Baby(attributes) {
+Person.call(this, attributes);
+this.favoriteToy = attributes.favoriteToy;
 }
+
+Baby.prototype = Object.create(Person.prototype);
+
+
+//Play method
+
+Baby.prototype.play = function() {
+  return `Playing with ${this.favoriteToy}.`
+}
+
+const babyOne = new Baby('Sophia', '1', 'Rattle')
 
 /* 
   TASK 4
